@@ -133,4 +133,17 @@ The most common destination(s): ['LHR']
 | `print_analysis_report()` | Displays the final formatted report |
 
 
+## Code Improvements Made
+
+The refined code improves the original version by:
+
+- Adding constants for airport codes, year limits, and dataset hours.
+- Adding type hints and clearer docstrings.
+- Separating analysis logic from printing logic.
+- Adding CSV loading support.
+- Adding command-line argument support.
+- Adding safer handling for missing indexes, invalid distances, missing files, and empty datasets.
+- Using `Counter` to simplify destination counting.
+- Adding a `main()` function and `if __name__ == "__main__"` guard.
+
 
