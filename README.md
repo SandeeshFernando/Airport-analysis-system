@@ -21,6 +21,30 @@ Airport Flight Analyzer is a Python lesson/coursework ,code organization analyze
 | LHR | London Heathrow |
 | MAD | Madrid Adolfo Suárez-Barajas |
 | CDG | Charles De Gaulle International |
+
+
+## Expected CSV Format
+
+The program expects each row in the CSV file to follow this column order:
+
+| Index | Column |
+|---:|---|
+| 0 | Departure airport |
+| 1 | Flight number |
+| 2 | Scheduled departure time |
+| 3 | Actual departure time |
+| 4 | Destination |
+| 5 | Distance in miles |
+| 6 | Scheduled arrival time |
+| 7 | Actual arrival time |
+| 8 | Runway number |
+| 9 | Weather condition |
+
+Example row:
+
+```csv
+CDG,BA123,00:32,00:32,LHR,713,02:42,02:42,1,18°C clear
+```
 | IST | Istanbul Airport International |
 | AMS | Amsterdam Schiphol |
 | LIS | Lisbon Portela |
