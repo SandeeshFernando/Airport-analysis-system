@@ -87,3 +87,17 @@ For example, if you enter `CDG` and `2024`, the program will look for:
 ```text
 CDG2024.csv
 ```
+
+
+### Option 2: Command-line mode
+
+You can provide the airport, year, and file path directly:
+
+```bash
+python airport_analysis.py --airport CDG --year 2024 --file CDG2024.csv
+```
+
+If `--file` is not provided, the program automatically uses `AIRPORTYEAR.csv`.
+
+
+
