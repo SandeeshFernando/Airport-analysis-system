@@ -100,4 +100,21 @@ python airport_analysis.py --airport CDG --year 2024 --file CDG2024.csv
 If `--file` is not provided, the program automatically uses `AIRPORTYEAR.csv`.
 
 
+## Example Output
+
+```text
+**********************************************************************
+File CDG2024.csv selected - Planes departing Charles De Gaulle International 2024
+**********************************************************************
+The total number of flights from this airport was 4
+The total number of flights departing Runway one was 2
+The total number of departures of flights over 500 miles was 2
+There were 2 British Airways flights from this airport
+There were 2 flights from this airport departing in rain
+There was an average of 0.33 flights per hour from this airport
+Air France planes made up 25.0% of all departures
+25.0% of all departures were delayed
+The most common destination(s): ['LHR']
+```
+
 
