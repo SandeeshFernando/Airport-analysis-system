@@ -1,5 +1,35 @@
-# Python Functions - Lesson 4: Organizing Code with Functions
+"""
+Airport Flight Data Analysis
 
+A refined version of the original lesson code. This module validates airport/year
+input, loads flight data from CSV files, and calculates summary statistics for
+departing flights.
+
+Expected CSV column order:
+0 departure_airport
+1 flight_number
+2 scheduled_departure
+3 actual_departure
+4 destination
+5 distance_miles
+6 scheduled_arrival
+7 actual_arrival
+8 runway
+9 weather
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+from collections import Counter
+from pathlib import Path
+from typing import Iterable, Optional
+
+
+VALID_AIRPORTS: set[str] = {
+    "LHR", "MAD", "CDG", "IST", "AMS", "LIS", "FRA", "FCO", "MUC", "BCN"
+}
 # 1. BASIC FUNCTION DEFINITION
 def greet_user(name):
     """
