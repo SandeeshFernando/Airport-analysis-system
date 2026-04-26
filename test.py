@@ -284,27 +284,32 @@ def calculate_delay_percentage(data_list: list[list[str]]) -> float:
 
     return round(percentage, 2)
 
-def find_most_common_destinations(data_list):
+
+def find_most_common_destinations(data_list: list[list[str]]) -> list[str]:
     """
-    Finds the most common destination(s).
-    Returns list of destination codes.
+    Find the most common destination or destinations.
+
+    Args:
+        data_list: Flight data rows.
+
+    Returns:
+        A list of destination codes with the highest number of flights.
     """
-    # Count destinations
-    dest_count = {}
+    destination_counts = {}
+
     for flight in data_list:
-        destination = flight[4]  # Destination is at index 4
-        dest_count[destination] = dest_count.get(destination, 0) + 1
-    
-    # Find maximum count
-    max_count = max(dest_count.values())
-    
-    # Get all destinations with max count
-    most_common = []
-    for dest, count in dest_count.items():
+        destination = flight[4]
+        destination_counts[destination] = destination_counts.get(destination, 0) + 1
+
+    max_count = max(destination_counts.values())
+
+    most_common_destinations = []
+
+    for destination, count in destination_counts.items():
         if count == max_count:
-            most_common.append(dest)
-    
-    return most_common
+            most_common_destinations.append(destination)
+
+    return most_common_destinations
 
 # 5. FULL AIRPORT NAME FUNCTION
 def get_airport_full_name(airport_code):
