@@ -27,9 +27,29 @@ from pathlib import Path
 from typing import Iterable, Optional
 
 
+
 VALID_AIRPORTS: set[str] = {
     "LHR", "MAD", "CDG", "IST", "AMS", "LIS", "FRA", "FCO", "MUC", "BCN"
 }
+
+AIRPORT_NAMES: dict[str, str] = {
+    "LHR": "London Heathrow",
+    "MAD": "Madrid Adolfo Suárez-Barajas",
+    "CDG": "Charles De Gaulle International",
+    "IST": "Istanbul Airport International",
+    "AMS": "Amsterdam Schiphol",
+    "LIS": "Lisbon Portela",
+    "FRA": "Frankfurt Main",
+    "FCO": "Rome Fiumicino",
+    "MUC": "Munich International",
+    "BCN": "Barcelona International",
+}
+
+
+HOURS_IN_DATASET = 12
+MIN_YEAR = 2000
+MAX_YEAR = 2025
+
 # 1. BASIC FUNCTION DEFINITION
 def greet_user(name):
     """
