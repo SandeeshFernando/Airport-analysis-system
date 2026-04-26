@@ -118,3 +118,19 @@ The most common destination(s): ['LHR']
 ```
 
 
+## Main Functions
+
+| Function | Purpose |
+|---|---|
+| `validate_airport_code()` | Checks that the airport code is valid |
+| `validate_year()` | Checks that the year is a number from 2000 to 2025 |
+| `load_flight_data()` | Reads the CSV file |
+| `count_runway_flights()` | Counts flights from a selected runway |
+| `count_long_haul_flights()` | Counts flights over 500 miles |
+| `calculate_delay_percentage()` | Calculates delayed departures |
+| `find_most_common_destinations()` | Finds the most frequent destination codes |
+| `analyse_flight_data()` | Runs the full analysis and returns results |
+| `print_analysis_report()` | Displays the final formatted report |
+
+
+
