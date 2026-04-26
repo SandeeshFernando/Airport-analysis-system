@@ -152,31 +152,59 @@ def get_user_input() -> tuple[str, int]:
 
 
 # 4. DATA ANALYSIS FUNCTIONS (For your Task B!)
-def count_total_flights(data_list):
+def count_total_flights(data_list: list[list[str]]) -> int:
     """
-    Counts the total number of flights in the dataset.
+    Count the total number of flights in the dataset.
+
+    Args:
+        data_list: Flight data rows.
+
+    Returns:
+        Total number of flights.
     """
     return len(data_list)
 
-def count_runway_flights(data_list, runway_number):
+def count_runway_flights(data_list: list[list[str]], runway_number: int) -> int:
     """
-    Counts flights from a specific runway.
+    Count flights departing from a specific runway.
+
+    Args:
+        data_list: Flight data rows.
+        runway_number: Runway number to count.
+
+    Returns:
+        Number of flights using the selected runway.
     """
     count = 0
+
     for flight in data_list:
-        if flight[8] == str(runway_number):  # Runway is at index 8
+        if flight[8] == str(runway_number):
             count += 1
+
     return count
 
-def count_long_haul_flights(data_list, min_distance=500):
+def count_long_haul_flights(
+    data_list: list[list[str]],
+    min_distance: int = 500,
+) -> int:
     """
-    Counts flights over a specified distance.
+    Count flights over a specified distance.
+
+    Args:
+        data_list: Flight data rows.
+        min_distance: Minimum distance in miles.
+
+    Returns:
+        Number of flights over the minimum distance.
     """
     count = 0
+
     for flight in data_list:
-        distance = int(flight[5])  # Distance is at index 5
+        distance = int(flight[5])
+
         if distance > min_distance:
             count += 1
+
     return count
 
 def count_airline_flights(data_list, airline_code):
@@ -209,28 +237,51 @@ def calculate_average_per_hour(data_list):
     average = total_flights / 12
     return round(average, 2)
 
-def calculate_airline_percentage(data_list, airline_code):
+def calculate_airline_percentage(
+    data_list: list[list[str]],
+    airline_code: str,
+) -> float:
     """
-    Calculates percentage of flights for a specific airline.
+    Calculate the percentage of flights for a specific airline.
+
+    Args:
+        data_list: Flight data rows.
+        airline_code: Two-letter airline code.
+
+    Returns:
+        Percentage of flights for the selected airline.
     """
     airline_flights = count_airline_flights(data_list, airline_code)
     total_flights = len(data_list)
     percentage = (airline_flights / total_flights) * 100
+
     return round(percentage, 2)
 
-def calculate_delay_percentage(data_list):
+def calculate_delay_percentage(data_list: list[list[str]]) -> float:
     """
-    Calculates percentage of delayed flights.
+    Calculate the percentage of delayed flights.
+
+    A flight is treated as delayed when the scheduled departure time and actual
+    departure time are different.
+
+    Args:
+        data_list: Flight data rows.
+
+    Returns:
+        Percentage of delayed flights.
     """
     delayed_count = 0
+
     for flight in data_list:
-        scheduled = flight[2]  # Scheduled departure
-        actual = flight[3]     # Actual departure
-        if scheduled != actual:
+        scheduled_departure = flight[2]
+        actual_departure = flight[3]
+
+        if scheduled_departure != actual_departure:
             delayed_count += 1
-    
+
     total_flights = len(data_list)
     percentage = (delayed_count / total_flights) * 100
+
     return round(percentage, 2)
 
 def find_most_common_destinations(data_list):
