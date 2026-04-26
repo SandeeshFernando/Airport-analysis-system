@@ -65,4 +65,25 @@ README.md             # Project documentation
 
 - Python 3.10 or newer
 - No third-party packages are required
-- 
+
+ ## How to Run
+
+### Option 1: Interactive mode
+
+Run the program and enter the airport code and year when prompted:
+
+```bash
+python airport_analysis.py
+```
+
+The program will look for a CSV file named using this pattern:
+
+```text
+AIRPORTYEAR.csv
+```
+
+For example, if you enter `CDG` and `2024`, the program will look for:
+
+```text
+CDG2024.csv
+```
