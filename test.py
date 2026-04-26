@@ -51,21 +51,27 @@ MIN_YEAR = 2000
 MAX_YEAR = 2025
 
 # 1. BASIC FUNCTION DEFINITION
-def greet_user(name):
+def greet_user(name: str) -> None:
     """
-    This is a docstring - it explains what the function does.
-    This function greets a user with their name.
+    Greet a user by name.
+
+    Args:
+        name: The user's name.
     """
     print(f"Hello, {name}! Welcome to the airport analysis system.")
-
 # Call the function
 greet_user("Student")
 
 # 2. FUNCTIONS THAT RETURN VALUES
-def get_airline_code(flight_number):
+def get_airline_code(flight_number: str) -> str:
     """
-    Extracts the airline code from a flight number.
-    Returns the first two characters.
+    Extract the airline code from a flight number.
+
+    Args:
+        flight_number: The full flight number, for example "BA123".
+
+    Returns:
+        The first two characters of the flight number.
     """
     return flight_number[:2]
 
@@ -75,59 +81,75 @@ airline = get_airline_code(flight)
 print(f"Flight {flight} is operated by airline: {airline}")
 
 # 3. VALIDATION FUNCTIONS (Perfect for your Task A!)
-def validate_airport_code(code):
+def validate_airport_code(code: str) -> bool:
     """
-    Validates airport code input.
-    Returns True if valid, False otherwise.
+    Validate an airport code entered by the user.
+
+    Args:
+        code: Airport code entered by the user.
+
+    Returns:
+        True if the code is valid, otherwise False.
     """
-    valid_airports = ["LHR", "MAD", "CDG", "IST", "AMS", "LIS", "FRA", "FCO", "MUC", "BCN"]
     code = code.strip().upper()
-    
+
     if len(code) != 3:
         print("Wrong code length - please enter a three-letter city code")
         return False
-    elif code not in valid_airports:
-        print("Unavailable city code - please enter a valid city code")  
-        return False
-    else:
-        return True
 
-def validate_year(year_input):
+    if code not in VALID_AIRPORTS:
+        print("Unavailable city code - please enter a valid city code")
+        return False
+
+    return True
+
+def validate_year(year_input: str) -> int | None:
     """
-    Validates year input.
-    Returns the year as integer if valid, None if invalid.
+    Validate a year entered by the user.
+
+    Args:
+        year_input: Year value entered as text.
+
+    Returns:
+        The year as an integer if valid, otherwise None.
     """
     try:
         year = int(year_input)
-        if year < 2000 or year > 2025:
-            print("Out of range - please enter a value from 2000 to 2025")
-            return None
-        else:
-            return year
     except ValueError:
         print("Wrong data type - please enter a four-digit year value")
         return None
 
-def get_user_input():
+    if year < MIN_YEAR or year > MAX_YEAR:
+        print(f"Out of range - please enter a value from {MIN_YEAR} to {MAX_YEAR}")
+        return None
+
+    return year
+
+def get_user_input() -> tuple[str, int]:
     """
-    Gets and validates airport code and year from user.
-    Returns tuple of (airport_code, year) when both are valid.
+    Ask the user for an airport code and year until both are valid.
+
+    Returns:
+        A tuple containing the airport code and year.
     """
-    # Get valid airport code
     while True:
-        airport_code = input("Please enter the three-letter code for the departure city required: ")
+        airport_code = input(
+            "Please enter the three-letter code for the departure city required: "
+        )
+
         if validate_airport_code(airport_code):
             airport_code = airport_code.strip().upper()
             break
-    
-    # Get valid year
+
     while True:
         year_input = input("Please enter the year required in the format YYYY: ")
         year = validate_year(year_input)
+
         if year is not None:
             break
-    
+
     return airport_code, year
+
 
 # 4. DATA ANALYSIS FUNCTIONS (For your Task B!)
 def count_total_flights(data_list):
