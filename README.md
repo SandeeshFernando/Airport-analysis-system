@@ -13,3 +13,18 @@ Airport Flight Analyzer is a Python lesson/coursework ,code organization analyze
 - Calculates delayed departure percentage.
 - Finds the most common destination or destinations.
 - Handles missing files and empty datasets more safely than the original version.
+
+## Supported Airports
+
+| Code | Airport |
+|---|---|
+| LHR | London Heathrow |
+| MAD | Madrid Adolfo Suárez-Barajas |
+| CDG | Charles De Gaulle International |
+| IST | Istanbul Airport International |
+| AMS | Amsterdam Schiphol |
+| LIS | Lisbon Portela |
+| FRA | Frankfurt Main |
+| FCO | Rome Fiumicino |
+| MUC | Munich International |
+| BCN | Barcelona International |
