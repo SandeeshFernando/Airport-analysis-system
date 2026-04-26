@@ -52,3 +52,17 @@ CDG,BA123,00:32,00:32,LHR,713,02:42,02:42,1,18°C clear
 | FCO | Rome Fiumicino |
 | MUC | Munich International |
 | BCN | Barcelona International |
+
+
+## Project Files
+
+```text
+airport_analysis.py   # Main Python program
+README.md             # Project documentation
+```
+
+## Requirements
+
+- Python 3.10 or newer
+- No third-party packages are required
+- 
